@@ -324,7 +324,8 @@ public class EntitySecurityCamera extends Entity {
 	}
 
 	public void setRedstonePower(int meta) {
-		if(meta == 0)
+		// todo fix packet exploiting
+		/*if(meta == 0)
 			SecurityCraft.network.sendToServer(new PacketSetBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), 9, true, 1, "", ""));
 		else if(meta == 5 || meta == 6 || meta == 7 || meta == 8)
 			SecurityCraft.network.sendToServer(new PacketSetBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), worldObj.getBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ)) - 4, true, 1, "", ""));
@@ -332,6 +333,8 @@ public class EntitySecurityCamera extends Entity {
 			SecurityCraft.network.sendToServer(new PacketSetBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), worldObj.getBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ)) + 4, true, 1, "", ""));
 		else if(meta == 9)
 			SecurityCraft.network.sendToServer(new PacketSetBlockMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), 0, true, 1, "", ""));
+
+		 */
 	}
 
 	public void enableNightVision(){
@@ -352,7 +355,8 @@ public class EntitySecurityCamera extends Entity {
 				modules = ((CustomizableSCTE)worldObj.getTileEntity((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ))).itemStacks;
 
 			if(block == SCContent.securityCamera){
-				SecurityCraft.network.sendToServer(new PacketSetBlockAndMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), "securitycraft:securityCameraLit", meta));
+				// todo fix packet exploiting
+			//	SecurityCraft.network.sendToServer(new PacketSetBlockAndMetadata((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), "securitycraft:securityCameraLit", meta));
 				SecurityCraft.network.sendToServer(new PacketSSetOwner((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ), ((IOwnable)worldObj.getTileEntity((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ))).getOwner().getUUID(), ((IOwnable)worldObj.getTileEntity((int)Math.floor(posX), (int)posY, (int)Math.floor(posZ))).getOwner().getName()));
 
 				if(modules != null)

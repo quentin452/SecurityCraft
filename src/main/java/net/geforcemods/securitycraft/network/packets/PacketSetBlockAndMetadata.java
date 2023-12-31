@@ -10,7 +10,9 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class PacketSetBlockAndMetadata implements IMessage{
 
-	private int x, y, z;
+	private int x;
+	private int y;
+	private int z;
 	private int metadata = -1;
 	private String blockID;
 
@@ -48,7 +50,8 @@ public class PacketSetBlockAndMetadata implements IMessage{
 
 		@Override
 		public IMessage onMessage(PacketSetBlockAndMetadata packet, MessageContext context) {
-			int x = packet.x;
+			// todo fix packet exploiting
+		/*	int x = packet.x;
 			int y = packet.y;
 			int z = packet.z;
 			String blockID = packet.blockID;
@@ -57,6 +60,8 @@ public class PacketSetBlockAndMetadata implements IMessage{
 			Block block = (Block)Block.blockRegistry.getObject(blockID);
 			getWorld(par1EntityPlayer).setBlock(x, y, z, block, packet.metadata, 3);
 
+
+		 */
 			return null;
 		}
 	}

@@ -425,8 +425,10 @@ public class RegistrationHandler
 
 	public static void registerPackets(SimpleNetworkWrapper network)
 	{
-		network.registerMessage(PacketSetBlock.Handler.class, PacketSetBlock.class, 1, Side.SERVER);
-		network.registerMessage(PacketSetBlockMetadata.Handler.class, PacketSetBlockMetadata.class, 2, Side.SERVER);
+		// todo fix packet exploiting
+	//	network.registerMessage(PacketSetBlock.Handler.class, PacketSetBlock.class, 1, Side.SERVER);
+		// todo fix packet exploiting
+		//network.registerMessage(PacketSetBlockMetadata.Handler.class, PacketSetBlockMetadata.class, 2, Side.SERVER);
 		network.registerMessage(PacketSetISType.Handler.class, PacketSetISType.class, 3, Side.SERVER);
 		network.registerMessage(PacketSetKeycardLevel.Handler.class, PacketSetKeycardLevel.class, 4, Side.SERVER);
 		network.registerMessage(PacketUpdateLogger.Handler.class, PacketUpdateLogger.class, 5, Side.CLIENT);
@@ -435,7 +437,8 @@ public class RegistrationHandler
 		network.registerMessage(PacketCPlaySoundAtPos.Handler.class, PacketCPlaySoundAtPos.class, 8, Side.CLIENT);
 		network.registerMessage(PacketSetExplosiveState.Handler.class, PacketSetExplosiveState.class, 9, Side.SERVER);
 		network.registerMessage(PacketGivePotionEffect.Handler.class, PacketGivePotionEffect.class, 10, Side.SERVER);
-		network.registerMessage(PacketSetBlockAndMetadata.Handler.class, PacketSetBlockAndMetadata.class, 11, Side.SERVER);
+		// todo fix packet exploiting
+	//	network.registerMessage(PacketSetBlockAndMetadata.Handler.class, PacketSetBlockAndMetadata.class, 11, Side.SERVER);
 		network.registerMessage(PacketSSetOwner.Handler.class, PacketSSetOwner.class, 12, Side.SERVER);
 		network.registerMessage(PacketSAddModules.Handler.class, PacketSAddModules.class, 13, Side.SERVER);
 		network.registerMessage(PacketCSetCameraLocation.Handler.class, PacketCSetCameraLocation.class, 14, Side.CLIENT);

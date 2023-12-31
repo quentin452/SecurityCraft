@@ -10,11 +10,14 @@ import net.minecraft.entity.player.EntityPlayer;
 
 public class PacketSetBlockMetadata implements IMessage{
 
-	private int x, y, z;
+	private int x;
+	private int y;
+	private int z;
 	private int blockMetadata;
 	private boolean shouldUpdateBlock;
 	private int amountOfTicks;
-	private String extraOwnerUUID, extraOwnerName;
+	private String extraOwnerUUID;
+	private String extraOwnerName;
 
 	public PacketSetBlockMetadata(){
 
@@ -60,7 +63,8 @@ public class PacketSetBlockMetadata implements IMessage{
 
 		@Override
 		public IMessage onMessage(PacketSetBlockMetadata packet, MessageContext context) {
-			int x = packet.x;
+			// todo fix packet exploiting
+		/*	int x = packet.x;
 			int y = packet.y;
 			int z = packet.z;
 			int blockMetadata = packet.blockMetadata;
@@ -83,6 +87,8 @@ public class PacketSetBlockMetadata implements IMessage{
 				getWorld(par1EntityPlayer).notifyBlocksOfNeighborChange(x, y, z + 1, getWorld(par1EntityPlayer).getBlock(x, y, z));
 				getWorld(par1EntityPlayer).notifyBlocksOfNeighborChange(x, y, z - 1, getWorld(par1EntityPlayer).getBlock(x, y, z));
 			}
+
+		 */
 
 			return null;
 		}
