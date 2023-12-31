@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://maven.minecraftforge.net/"
         }
         maven {
             name = "sonatype"
@@ -11,7 +11,9 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
+                changing = true
+            }
     }
 }
 
@@ -28,25 +30,12 @@ compileJava {
 
 minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
-    assetDir = "eclipse/assets"
     mappings = "stable_12"
 }
 
 dependencies {
-    compile files('lib/LookingGlass-1.7.10-0.2.0.01.jar', 'lib/Waila-1.5.10_1.7.10.jar')
+    implementation files('lib/LookingGlass-1.7.10-0.2.0.01.jar', 'lib/Waila-1.5.10_1.7.10.jar')
 }
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'deobf'
-}
-
-task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
-
-tasks.build.dependsOn('sourceJar', 'deobfJar')
 
 processResources
 {
@@ -61,16 +50,16 @@ processResources
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
 }
-
+processResources {
+    duplicatesStrategy = 'include'
+}
 artifacts {
-	archives deobfJar
-	archives sourceJar
 	archives jar
 }
 
