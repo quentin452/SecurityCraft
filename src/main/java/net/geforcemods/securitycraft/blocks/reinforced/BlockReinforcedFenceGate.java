@@ -30,9 +30,11 @@ public class BlockReinforcedFenceGate extends BlockFenceGate implements ITileEnt
 
 	public BlockReinforcedFenceGate(){
 		super();
-		ObfuscationReflectionHelper.setPrivateValue(Block.class, this, Material.iron, 34);
 	}
-
+	@Override
+	public Material getMaterial() {
+        return Material.iron;
+	}
 	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
 	{

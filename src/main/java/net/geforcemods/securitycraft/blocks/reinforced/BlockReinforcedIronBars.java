@@ -24,8 +24,9 @@ public class BlockReinforcedIronBars extends BlockPane implements ITileEntityPro
 
 	public BlockReinforcedIronBars(String frontIcon, String sideIcon, Material material, boolean drop) {
 		super(frontIcon, sideIcon, material, drop);
-		ObfuscationReflectionHelper.setPrivateValue(Block.class, this, Block.soundTypeMetal, 32);
+		this.setStepSound(Block.soundTypeMetal);
 	}
+
 
 	@Override
 	public boolean canEntityDestroy(IBlockAccess world, int x, int y, int z, Entity entity)
